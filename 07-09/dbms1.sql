@@ -83,4 +83,45 @@ DROP TABLE students;
 show tables;
 Empty set
 
+create table classes( class_id int auto_increment, 
+                     class_name varchar(255) not null, 
+                     student_count int check(student_count >0), 
+                     primary key(class_id) );
+describe classes;
++---------------+--------------+------+-----+---------+----------------+
+| Field         | Type         | Null | Key | Default | Extra          |
++---------------+--------------+------+-----+---------+----------------+
+| class_id      | int(11)      | NO   | PRI | NULL    | auto_increment |
+| class_name    | varchar(255) | NO   |     | NULL    |                |
+| student_count | int(11)      | YES  |     | NULL    |                |
++---------------+--------------+------+-----+---------+----------------+
+
+create table food (
+    id int auto_increment,
+    food_name varchar(20) not null,
+    primary key (id) );
+    
+-- Query OK, 0 rows affected (0.121 sec)
+
+insert into food (food_name) values ('Pizza'),
+    ('Burger'),('Pasta'),('Momos'),('Noodles');
+
+select * from food;
++----+-----------+
+| id | food_name |
++----+-----------+
+|  1 | Pizza     |
+|  2 | Burger    |
+|  3 | Pasta     |
+|  4 | Momos     |
+|  5 | Noodles   |
++----+-----------+
+
+select * from food where id >= 4;
++----+-----------+
+| id | food_name |
++----+-----------+
+|  4 | Momos     |
+|  5 | Noodles   |
++----+-----------+
 
